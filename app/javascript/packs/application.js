@@ -8,6 +8,8 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+console.log("application.js")
+
 // Tailwindcss
 import "stylesheets/application"
 

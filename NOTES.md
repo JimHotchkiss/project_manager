@@ -42,7 +42,12 @@
 
 3/21/2021 - Avi Project Build
 [X] Create Project
-[] Render Navbar
+[X] Wire up Javascript
+    - Note - Seems the most straight forward way, is to add a javascript file in the app/javascript/packs directory, and then add a Rails tag helper in the application.html.erb view 
+        * app/javascript/packs/some_javascript.js
+        * app/views/layouts/application.html.erb 
+            - <%= javascript_pack_tag 'some_javascript' %>
+[X] Render Navbar
 [] Rails generate Project 
     - Note: rails generate resource Project name:string number_of_developers:integer description:text
     (x) Model

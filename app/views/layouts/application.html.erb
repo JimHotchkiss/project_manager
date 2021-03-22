@@ -10,9 +10,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="antialiased font-base text-white bg-black">
+  <body>
     <!-- Navbar -->
     <%= render './dashboard/navbar' %>
     <%= yield %>
+
+    <%= javascript_pack_tag 'navbar' %>
   </body>
 </html>
