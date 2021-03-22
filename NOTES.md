@@ -54,6 +54,7 @@
     () Routes
 Note - rails generator resource - Will build a Model, Controller, View and Route resources
 Note - For styling, consider using Tailwinds. Video on Youtube for installing -https://www.youtube.com/watch?v=3xcUSIu3nXA
+<<<<<<< HEAD
     * yarn add tailwindcss
     * npx tailwindcss init
         - This creates a tailwind.config.js config file
@@ -93,5 +94,7 @@ Note - Got an error: zsh: no matches found (the head symbol ^ caused the problem
     - npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@\^7 autoprefixer@\^9
 
 
+=======
+>>>>>>> 43ea4da47dbec6a6a5071f63017fc4412adc6f17
 
    
