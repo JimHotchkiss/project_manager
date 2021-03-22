@@ -42,9 +42,10 @@
 
 3/21/2021 - Avi Project Build
 [X] Create Project
+[] Render Navbar
 [] Rails generate Project 
     - Note: rails generate resource Project name:string number_of_developers:integer description:text
-    () Model
+    (x) Model
         - Name 
         - Number_of_developers
         - Description
@@ -52,5 +53,45 @@
     () View
     () Routes
 Note - rails generator resource - Will build a Model, Controller, View and Route resources
+Note - For styling, consider using Tailwinds. Video on Youtube for installing -https://www.youtube.com/watch?v=3xcUSIu3nXA
+    * yarn add tailwindcss
+    * npx tailwindcss init
+        - This creates a tailwind.config.js config file
+    * With Tailwind, things need to be configured a little (or a lot) different
+        - in the javascript folder, create a stylesheets folder
+            - Move the tailswind.config.js file into the new stylesheets folder
+            - In javascript/stylesheets, create an application.scss file
+                * Import: 
+                    @import "tailwindcss/base";
+                    @import "tailwindcss/components";
+                    @import "tailwindcss/utilities";
+    * Quick correction. The npx tailwindcss init doesn't add the entire library. We can always edit it after development
+        - Delete the tailwind.config.js file, and run
+        - npm tailwindcss init --full
+    * In our postcss.config.js file, we need to tell it to use Tailwindcss
+        - let environment = {
+            plugins: [
+                require("tailwindcss")("./app/javascript/stylesheets/tailwind.config.js"),
+                require("postcss-import"),
+                require("postcss-flexbugs-fixes"),
+                require("postcss-preset-env")({
+                    autoprefixer: {
+                    flexbox: "no-2009",
+                    },
+                    stage: 3,
+                }),
+            ],
+        }
+
+        module.exports = environment
+    * In our application.html.erb, we need to tell our views to use the stylesheets pack (above the javascript pack_tag)
+        - <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    * Now we need to import CSS (Tailwinds)
+        - javascript/packs/application.js
+            * import "stylesheets/application
+Note - Got an error: zsh: no matches found (the head symbol ^ caused the problem). Putting in the back-ticks before the head symbol fixed it.
+    - npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@\^7 autoprefixer@\^9
+
+
 
    
