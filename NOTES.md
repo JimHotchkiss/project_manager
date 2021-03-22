@@ -44,7 +44,7 @@
 [X] Create Project
 [] Rails generate Project 
     - Note: rails generate resource Project name:string number_of_developers:integer description:text
-    () Model
+    (x) Model
         - Name 
         - Number_of_developers
         - Description
@@ -52,5 +52,6 @@
     () View
     () Routes
 Note - rails generator resource - Will build a Model, Controller, View and Route resources
+Note - For styling, consider using Tailwinds. Video on Youtube for installing -https://www.youtube.com/watch?v=3xcUSIu3nXA
 
    
