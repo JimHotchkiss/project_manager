@@ -1,8 +1,8 @@
-<nav class="
+<nav id="nav" class="
     bg-gray-100
     h-16
     flex
-    items-center
+    pt-5
     justify-around">
     <div class="
         ml-5
@@ -19,30 +19,31 @@
         ">
         <ul class="flex flex-row font-light">
             <li class="mx-3 hover:text-red-500 cursor-pointer">Login</li>
+            <li class="mx-3 hover:text-red-500 cursor-pointer"><%= link_to "Open Projects", projects_path %></li>
             <li class="mx-3 hover:text-red-500 cursor-pointer">My Projects</li>
-            <li class="mx-3 hover:text-red-500 cursor-pointer">Create Project</li>
+            <li class="mx-3 hover:text-red-500 cursor-pointer"><%= link_to "Create Project", new_project_path %></li>
         </ul>
     </div>
-    <div class="
+    <div id="menu" class="
         md:hidden
         mr-5
         min-h-9
         w-7 
         cursor-pointer
         ">
-        <div class="
+        <div id="top"class="
             h-1 
             w-3
             bg-red-500 
             mb-1
             rounded-sm"></div>
-        <div class="
+        <div id="middle" class="
             h-1 
             w-5 
             bg-red-500 
             mb-1
             rounded-sm"></div>
-        <div class="
+        <div id="bottom" class="
             h-1 
             w-7 
             bg-red-500

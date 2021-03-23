@@ -81,7 +81,7 @@
 Note - Video - Rails Models, Routes, Forms, Path Helpers ~ hour
 
 # 3/23/2021
-[] Project new - Forms
+[X] Project new - Forms
     - User clicks 'Create Project'
     - Our URL shows projects/new
     - Project controller and new method is hit
@@ -89,8 +89,24 @@ Note - Video - Rails Models, Routes, Forms, Path Helpers ~ hour
         - Note: db tables - plural
                 Controllers - plural
                 Models - Singular
+    (x) Navigation
+        (x) Projects#index navigation
+            - <%= link_to "Projects", '/projects' %>
+                * For the path, use _path. For instance, instead of "./projects", to render the Projects index, you can use projects_path.
+                * Rails routes will show you the prefix to use. For instance, new_project, is the prefix for "/projects/new". So the _path would be new_project_path
+        (x) Projects#new navigation
+            - <%= link_to "Create Project", '/projects/new' %>
+[] Submit Form 
+    - Note: Form would not submit, when testing it. I found that I did not have an openning div, and this prevent the form from submitting.
+    () Strong params 
+    () Create method
+    () Show view 
+        () @project variable is showing up nil, on the Project show page. View is rendering though.
+            - Note: The new method reroutes to the show method. There you'll search for the instance with .find(params[:id]). Show method implicitly reroutes to the show view
+    () Form validations
     () URL - projects/new
         - This is handled by Rails resources 
+Note - in app/javascript/stylesheets/tailwind.config.js, I changed the transition default time from 150ms to 300ms
 Note - Video - 5/4 FT Rails Models, Routes, Forms, Path Helpers ~ hour
 
 Note - rails generator resource - Will build a Model, Controller, View and Route resources

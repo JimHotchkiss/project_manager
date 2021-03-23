@@ -643,7 +643,7 @@ module.exports = {
       1000: "1000ms",
     },
     transitionDuration: {
-      DEFAULT: "150ms",
+      DEFAULT: "300ms",
       75: "75ms",
       100: "100ms",
       150: "150ms",
