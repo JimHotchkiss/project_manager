@@ -40,7 +40,7 @@
 
 
 
-3/21/2021 - Avi Project Build
+# 3/21/2021 - Avi Project Build
 [X] Create Project
 [X] Wire up Javascript
     - Note - Seems the most straight forward way, is to add a javascript file in the app/javascript/packs directory, and then add a Rails tag helper in the application.html.erb view 
@@ -57,6 +57,42 @@
     () Controller
     () View
     () Routes
+
+# 3/22/2021 - Avi Project Build
+[X] Rails generate Project 
+    - Note: rails generate resource Project name:string number_of_developers:integer description:text
+    (x) Model
+        - Name 
+        - Number_of_developers
+        - Description
+    (x) Change to Project model
+        (x) Change name to title
+        - Note: rails db:drop -> make changes -> rails db:create -> rails db:migrate
+[] Project new - Forms
+    - User clicks 'Create Project'
+    - Our URL shows projects/new
+    - Project controller and new method is hit
+    - Form is rendered
+        - Note: db tables - plural
+                Controllers - plural
+                Models - Singular
+    () URL - projects/new
+        - This is handled by Rails resources 
+Note - Video - Rails Models, Routes, Forms, Path Helpers ~ hour
+
+# 3/23/2021
+[] Project new - Forms
+    - User clicks 'Create Project'
+    - Our URL shows projects/new
+    - Project controller and new method is hit
+    - Form is rendered
+        - Note: db tables - plural
+                Controllers - plural
+                Models - Singular
+    () URL - projects/new
+        - This is handled by Rails resources 
+Note - Video - 5/4 FT Rails Models, Routes, Forms, Path Helpers ~ hour
+
 Note - rails generator resource - Will build a Model, Controller, View and Route resources
 Note - For styling, consider using Tailwinds. Video on Youtube for installing -https://www.youtube.com/watch?v=3xcUSIu3nXA
     * yarn add tailwindcss
