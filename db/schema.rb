@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_002229) do
+ActiveRecord::Schema.define(version: 2021_03_24_002645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "project_technologies", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string "title"
@@ -23,4 +29,16 @@ ActiveRecord::Schema.define(version: 2021_03_22_002229) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "technologies", force: :cascade do |t|
+    t.string "name"
+    t.bigint "project_id"
+    t.bigint "technology_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_technologies_on_project_id"
+    t.index ["technology_id"], name: "index_technologies_on_technology_id"
+  end
+
+  add_foreign_key "technologies", "projects"
+  add_foreign_key "technologies", "technologies"
 end

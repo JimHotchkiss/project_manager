@@ -106,7 +106,17 @@ Note - Video - Rails Models, Routes, Forms, Path Helpers ~ hour
     () Form validations
     () URL - projects/new
         - This is handled by Rails resources 
+[X] Create 
+    (x) Technology
+    (x) ProjectTechnology
+    (x) Create associates in Models
+    (x) Test in Rails console
 Note - in app/javascript/stylesheets/tailwind.config.js, I changed the transition default time from 150ms to 300ms
+Note - rails g resource (naming convention)
+    - Table is singular and camelCase
+    - The row is snake_case
+    - rails g resource Technology name:string
+    - rails g ProjectTechnology name:string
 Note - Video - 5/4 FT Rails Models, Routes, Forms, Path Helpers ~ hour
 
 Note - rails generator resource - Will build a Model, Controller, View and Route resources
