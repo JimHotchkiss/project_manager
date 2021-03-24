@@ -17,8 +17,12 @@ ActiveRecord::Schema.define(version: 2021_03_24_002645) do
 
   create_table "project_technologies", force: :cascade do |t|
     t.string "name"
+    t.bigint "project_id"
+    t.bigint "technology_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_project_technologies_on_project_id"
+    t.index ["technology_id"], name: "index_project_technologies_on_technology_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -31,14 +35,10 @@ ActiveRecord::Schema.define(version: 2021_03_24_002645) do
 
   create_table "technologies", force: :cascade do |t|
     t.string "name"
-    t.bigint "project_id"
-    t.bigint "technology_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["project_id"], name: "index_technologies_on_project_id"
-    t.index ["technology_id"], name: "index_technologies_on_technology_id"
   end
 
-  add_foreign_key "technologies", "projects"
-  add_foreign_key "technologies", "technologies"
+  add_foreign_key "project_technologies", "projects"
+  add_foreign_key "project_technologies", "technologies"
 end

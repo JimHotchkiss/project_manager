@@ -98,13 +98,13 @@ Note - Video - Rails Models, Routes, Forms, Path Helpers ~ hour
             - <%= link_to "Create Project", '/projects/new' %>
 [] Submit Form 
     - Note: Form would not submit, when testing it. I found that I did not have an openning div, and this prevent the form from submitting.
-    () Strong params 
-    () Create method
-    () Show view 
-        () @project variable is showing up nil, on the Project show page. View is rendering though.
+    (x) Strong params 
+    (x) Create method
+    (x) Show view 
+        (x) @project variable is showing up nil, on the Project show page. View is rendering though.
             - Note: The new method reroutes to the show method. There you'll search for the instance with .find(params[:id]). Show method implicitly reroutes to the show view
     () Form validations
-    () URL - projects/new
+    (x) URL - projects/new
         - This is handled by Rails resources 
 [X] Create 
     (x) Technology
@@ -117,6 +117,37 @@ Note - rails g resource (naming convention)
     - The row is snake_case
     - rails g resource Technology name:string
     - rails g ProjectTechnology name:string
+
+# 3/24/2021
+    [] Schema is associated correctly
+        - ProjectTechnology did not come out right
+        (x) rails db:drop
+        (x) Delete schema
+        (-) Delete migrations - Didn't have to
+        (-) Correctly generate ProjectTechnology - Didn't have to
+        () rails db:create
+        () rails db:migrate
+    [] Submit Form 
+    - Note: Form would not submit, when testing it. I found that I did not have an openning div, and this prevent the form from submitting.
+    (x) Strong params 
+    (x) Create method
+    (x) Show view 
+        (x) @project variable is showing up nil, on the Project show page. View is rendering though.
+            - Note: The new method reroutes to the show method. There you'll search for the instance with .find(params[:id]). Show method implicitly reroutes to the show view
+    () Form validations
+    (x) URL - projects/new
+        - This is handled by Rails resources 
+## Note: When building models with resource, remember to add --no-test-framework
+## Associations
+    # Project
+        - has_many Technologies
+    # Technology
+        - has_many Projects
+    # ProjectTechnology
+        - belongs_to Project
+        - belongs_to Technology
+        - Attribute ? 
+            Note - This model can be renamed
 Note - Video - 5/4 FT Rails Models, Routes, Forms, Path Helpers ~ hour
 
 Note - rails generator resource - Will build a Model, Controller, View and Route resources
