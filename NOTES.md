@@ -119,14 +119,14 @@ Note - rails g resource (naming convention)
     - rails g ProjectTechnology name:string
 
 # 3/24/2021
-    [] Schema is associated correctly
+    [X] Schema is associated incorrectly
         - ProjectTechnology did not come out right
         (x) rails db:drop
         (x) Delete schema
         (-) Delete migrations - Didn't have to
         (-) Correctly generate ProjectTechnology - Didn't have to
-        () rails db:create
-        () rails db:migrate
+        (x) rails db:create
+        (x) rails db:migrate
     [] Submit Form 
     - Note: Form would not submit, when testing it. I found that I did not have an openning div, and this prevent the form from submitting.
     (x) Strong params 
