@@ -137,16 +137,35 @@ Note - rails g resource (naming convention)
     () Form validations
     (x) URL - projects/new
         - This is handled by Rails resources 
+# With ProjectTechnologies, there is no attribute that the use can add
+# So I'm going to change it to Rescource
+    * Resource will have a url as an attribute
+[X] Add Resource as join-table
+    (x) Delete ProjectTechnology Controller
+    (x) Model
+    (x) View
+    (x) Delete schema
+    (x) Edit migration
+    (x) Delete route
+[] Nested forms 
+    * forms_for is used to create the association fields
+
+     <div class=""
+                    <%= t.label class:"inline-flex" do%>
+                    <%=t.check_box class:"form-checkbox h-5 w-5 mt-2"%><%=t.text%>
+                </div>
 ## Note: When building models with resource, remember to add --no-test-framework
 ## Associations
-    # Project
-        - has_many Technologies
+    # Project 
+        - has_many :resources
+        - has_many :technologies, through: :resources
     # Technology
-        - has_many Projects
-    # ProjectTechnology
+        - has_many :resources
+        - has_many :projects, through: :resources
+    # Resource
         - belongs_to Project
         - belongs_to Technology
-        - Attribute ? 
+        - url:string ? 
             Note - This model can be renamed
 Note - Video - 5/4 FT Rails Models, Routes, Forms, Path Helpers ~ hour
 
