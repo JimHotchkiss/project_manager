@@ -148,20 +148,38 @@ Note - rails g resource (naming convention)
     (x) Edit migration
     (x) Delete route
 # 3/25/2021
-[X] Switch to ProjectTechnology as join-table
+[] Switch to ProjectTechnology as join-table
     (x) Delete ProjectTechnology Controller
     (x) Model
     (x) View
-    (x) Delete schema
+    () Delete schema
     (x) Edit migration
     (x) Delete route
+
+    t.belongs_to :technology, foreign_key: true
+      t.belongs_to :project, foreign_key: true
 [] Nested forms 
     * forms_for is used to create the association fields
+    * Note: When originally setup, an empty element was being added to the check_box params. You have to add a 'hidden' attribute
+        -  <%= f.collection_check_boxes(:technology_ids, Technology.all, :id, :name, include_hidden: false) do |t| %>
+    () Creating a new Technology
+        * fields_for helper takes two arguments: the associated model we're creating and an object to wrap around.
+            <%= f.fields_for :technologies, project.technologies.build do |technologies_fields| %>
+                <%= technologies_fields.text_field :name %>
+            <% end %>
+        * Our params hash will now have a key of :technologies_attributes nest under the key of project
+            - In our project_params, we add this technologies_attribute
+                * technologies_attributes: [:name]
+            - In our Project model, we'll add accepts_nested_attributes_for :technologies
+            # Note - There is a problem though. We are now create a new Technology instance, regardless if it's already been create. We utilize the techologies_attributes= method. This checks if there is another instance of this technology, and if there is not, it creates and adds it to self.technologies << 
+                * remove accepts_nested_attributes_for
+             def technologies_attributes=(technology_attributes)
+                technology_attributes.values.each do |technology_attribute|
+                technology = Technology.find_or_create_by(technology_attribute)
+                self.technologies << technology
+                end
+            end
 
-     <div class=""
-                    <%= t.label class:"inline-flex" do%>
-                    <%=t.check_box class:"form-checkbox h-5 w-5 mt-2"%><%=t.text%>
-                </div>
 ## Note: When building models with resource, remember to add --no-test-framework
 ## Associations
     # Project 

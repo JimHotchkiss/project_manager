@@ -6,11 +6,14 @@
             <p class="p-4 font-semibold">Number of Developers: <span class="font-light"><%= project.number_of_developers%></span></p>
 
             <!-- Display Technologies -->
-            <p class="p-4 font-semibold">Project Technologies:</p>
-            <% project.technologies.each do |technology|  %>
-                <p class="p-4 font-semibold">Project Technologies: <span class="font-light"><%= technology.name%></span></p>
-            <% end %>
-            <button class="m-3 
+            <p class="ml-4 font-semibold">Project Technologies:</p>
+            <div class="ml-4 mb-2 max-w-md">
+                <% project.technologies.each do |technology|  %>
+                    <p class="pl-4 pt-1 font-light"><%= technology.name%></p>
+                <% end %>
+            </div>
+            <div class="flex justify-between">
+                <button class="m-3 
                            mb-5
                            px-6 
                            py-1 
@@ -21,6 +24,18 @@
                            hover:border-black
                            transition-all
                            hover:bg-yellow-500">Join</button>
+                <button class="m-3 
+                           mb-5
+                           px-6 
+                           py-1 
+                           bg-yellow-400
+                           rounded
+                           focus:outline-none 
+                           border
+                           hover:border-black
+                           transition-all
+                           hover:bg-yellow-500">Details</button>
+            </div>
         </div>
     <% end %>
 </div>
