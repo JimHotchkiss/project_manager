@@ -158,11 +158,11 @@ Note - rails g resource (naming convention)
 
     t.belongs_to :technology, foreign_key: true
       t.belongs_to :project, foreign_key: true
-[] Nested forms 
+[X] Nested forms 
     * forms_for is used to create the association fields
     * Note: When originally setup, an empty element was being added to the check_box params. You have to add a 'hidden' attribute
         -  <%= f.collection_check_boxes(:technology_ids, Technology.all, :id, :name, include_hidden: false) do |t| %>
-    () Creating a new Technology
+    (x) Creating a new Technology
         * fields_for helper takes two arguments: the associated model we're creating and an object to wrap around.
             <%= f.fields_for :technologies, project.technologies.build do |technologies_fields| %>
                 <%= technologies_fields.text_field :name %>
@@ -179,7 +179,7 @@ Note - rails g resource (naming convention)
                 self.technologies << technology
                 end
             end
-
+[] User login
 ## Note: When building models with resource, remember to add --no-test-framework
 ## Associations
     # Project 
