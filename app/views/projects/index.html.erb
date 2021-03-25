@@ -4,7 +4,12 @@
             <h1 class="p-4 font-semibold">Project Title: <span class="font-light"><%= project.title%></span></h1>
             <p class="p-4 font-semibold">Project Description: <span class="font-light"><%= project.description%></span></p>
             <p class="p-4 font-semibold">Number of Developers: <span class="font-light"><%= project.number_of_developers%></span></p>
-           
+
+            <!-- Display Technologies -->
+            <p class="p-4 font-semibold">Project Technologies:</p>
+            <% project.technologies.each do |technology|  %>
+                <p class="p-4 font-semibold">Project Technologies: <span class="font-light"><%= technology.name%></span></p>
+            <% end %>
             <button class="m-3 
                            mb-5
                            px-6 

@@ -147,6 +147,14 @@ Note - rails g resource (naming convention)
     (x) Delete schema
     (x) Edit migration
     (x) Delete route
+# 3/25/2021
+[X] Switch to ProjectTechnology as join-table
+    (x) Delete ProjectTechnology Controller
+    (x) Model
+    (x) View
+    (x) Delete schema
+    (x) Edit migration
+    (x) Delete route
 [] Nested forms 
     * forms_for is used to create the association fields
 
