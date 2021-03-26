@@ -3,9 +3,10 @@
         <h1 class="p-4 font-semibold">Project Title: <span class="font-light"><%= @project.title%></span></h1>
         <p class="p-4 font-semibold">Project Description: <span class="font-light"><%= @project.description%></span></p>
         <p class="p-4 font-semibold">Number of Developers: <span class="font-light"><%= @project.number_of_developers%></span></p>
-        <div class="ml-4 mb-2 max-w-md">
+        <div class="ml-4 mb-6 max-w-md">
+            <p class="font-semibold">Technologies:</p>
             <% @project.technologies.each do |technology|  %>
-                <p class="pl-4 pt-1 font-light"><%= technology.name%></p>
+                <p class="pt-1 font-light"><%= technology.name%></p>
             <% end %>
         </div>
     </div>

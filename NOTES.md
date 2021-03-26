@@ -148,16 +148,22 @@ Note - rails g resource (naming convention)
     (x) Edit migration
     (x) Delete route
 # 3/25/2021
-[] Switch to ProjectTechnology as join-table
+[X] Switch to Resource as join-table
     (x) Delete ProjectTechnology Controller
     (x) Model
     (x) View
-    () Delete schema
+    (x) Delete schema
     (x) Edit migration
     (x) Delete route
 
-    t.belongs_to :technology, foreign_key: true
-      t.belongs_to :project, foreign_key: true
+Note - When you have a belongs_to association, like in our Resource join table, it comes with six methods. 'association' is replaced with the specific model
+    - association
+    - association=(associate)
+    - build_association(attributes = {})
+    - create_association(attributes = {})
+    - create_association!(attributes = {})
+    - reload_association
+Note - raise params.inspect
 [X] Nested forms 
     * forms_for is used to create the association fields
     * Note: When originally setup, an empty element was being added to the check_box params. You have to add a 'hidden' attribute
@@ -179,6 +185,22 @@ Note - rails g resource (naming convention)
                 self.technologies << technology
                 end
             end
+            # You can use accepts_nested_ method, with some modifactions, and it does the same as the custom writer
+             accepts_nested_attributes_for :category, reject_if: proc { |attributes| attributes['name'].blank? }
+
+# 3/26/2021
+    [] Look at params in the Project model. It instantiating an empty attribute.
+
+# Project#index - 
+            <p class="p-4 font-semibold">Number of Developers: <span class="font-light"><%= project.number_of_developers%></span></p>
+
+            <!-- Display Technologies -->
+            <p class="ml-4 font-semibold">Project Technologies:</p>
+            <div class="ml-4 mb-2 max-w-md">
+                <% project.technologies.each do |technology|  %>
+                    <p class="pt-1 font-light"><%= technology.name%></p>
+                <% end %>
+            </div>
 [] User login
 ## Note: When building models with resource, remember to add --no-test-framework
 ## Associations
