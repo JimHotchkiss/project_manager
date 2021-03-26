@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_25_210756) do
+ActiveRecord::Schema.define(version: 2021_03_26_154219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "project_technologies", force: :cascade do |t|
+    t.bigint "technology_id"
+    t.bigint "project_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_project_technologies_on_project_id"
+    t.index ["technology_id"], name: "index_project_technologies_on_technology_id"
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string "title"
@@ -23,22 +32,12 @@ ActiveRecord::Schema.define(version: 2021_03_25_210756) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "resources", force: :cascade do |t|
-    t.string "url"
-    t.bigint "technology_id"
-    t.bigint "project_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["project_id"], name: "index_resources_on_project_id"
-    t.index ["technology_id"], name: "index_resources_on_technology_id"
-  end
-
   create_table "technologies", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "resources", "projects"
-  add_foreign_key "resources", "technologies"
+  add_foreign_key "project_technologies", "projects"
+  add_foreign_key "project_technologies", "technologies"
 end

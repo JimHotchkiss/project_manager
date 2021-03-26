@@ -191,6 +191,32 @@ Note - raise params.inspect
 # 3/26/2021
     [] Look at params in the Project model. It instantiating an empty attribute.
         Note - It seems that the technologies_attributers is intantiating a blank string, but only on the first.
+        - This is the code from _form that is the nested technologies part
+            <!-- Create Technology-->
+            <div class="mb-1">Add a Technology</div>
+            <div class=" flex flex-col mb-3">
+                <%= f.fields_for :technologies do |technologies_fields| %>
+                    <%= technologies_fields.text_field :name, class:"mb-3 h-9 focus:outline-none" %>
+                <% end %>
+            </div>
+        - Strong params 
+            technologies_attributes: [:name]
+        - Resources place holder code. 
+            !-- Create Resource -->
+            <div class="mb-1">Add a Resource</div>
+                <div class=" flex flex-col mb-3">
+            </div>
+        * So when I remove the nested portion, an empty object is NOT instantiated. The issue is coming from the fields for. 
+[] Switch to ProjectTechnology as join-table
+    () Delete Resource:
+    (x) Controller
+    (x) Model
+    (x) View
+    () Delete schema
+    () Delete resource migration
+        t.belongs_to :technology, foreign_key: true
+        t.belongs_to :project, foreign_key: true
+    () Delete route
 ### When I use accepts_nested_ it does not create a blank entry for Technology, but it allows duplicates. If I use custom setter, it does not allow duplicates, but will allow blanks.
 
 # Project#index - 

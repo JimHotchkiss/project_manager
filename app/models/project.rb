@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
-    has_many :resources
-    has_many :technologies, through: :resources
-    accepts_nested_attributes_for :technologies, reject_if: proc { |attributes| attributes['name'].blank? }
+    has_many :project_technologies
+    has_many :technologies, through: :project_technologies
+    accepts_nested_attributes_for :technologies, reject_if: proc { |attributes|  attributes['name'].blank?  }
 
     # def technologies_attributes=(technology_attributes)
     #     technology_attributes.values.each do |technology_attribute|
