@@ -190,6 +190,8 @@ Note - raise params.inspect
 
 # 3/26/2021
     [] Look at params in the Project model. It instantiating an empty attribute.
+        Note - It seems that the technologies_attributers is intantiating a blank string, but only on the first.
+### When I use accepts_nested_ it does not create a blank entry for Technology, but it allows duplicates. If I use custom setter, it does not allow duplicates, but will allow blanks.
 
 # Project#index - 
             <p class="p-4 font-semibold">Number of Developers: <span class="font-light"><%= project.number_of_developers%></span></p>

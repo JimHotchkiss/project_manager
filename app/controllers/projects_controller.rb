@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 
     def new 
         @project = Project.new
+        @project.technologies.build
         3.times{@project.technologies.build}
     end 
 
