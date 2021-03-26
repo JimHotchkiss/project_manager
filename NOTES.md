@@ -207,17 +207,19 @@ Note - raise params.inspect
                 <div class=" flex flex-col mb-3">
             </div>
         * So when I remove the nested portion, an empty object is NOT instantiated. The issue is coming from the fields for. 
-[] Switch to ProjectTechnology as join-table
+[X] Switch to ProjectTechnology as join-table
     () Delete Resource:
     (x) Controller
     (x) Model
     (x) View
-    () Delete schema
-    () Delete resource migration
+    (x) Delete schema
+    (x) Delete resource migration
         t.belongs_to :technology, foreign_key: true
         t.belongs_to :project, foreign_key: true
-    () Delete route
+    (x) Delete route
 ### When I use accepts_nested_ it does not create a blank entry for Technology, but it allows duplicates. If I use custom setter, it does not allow duplicates, but will allow blanks.
+#### Some of my confusion is that I'm trying to image one join table, but what I really need is two: One for ProjectTechnology and one for Resource
+    - When I check 'Python', and add 'Python', it doesn't instantiate two new Pythons, it does however add the same python twice. I looked, though there listed twice, it's the same id.
 
 # Project#index - 
             <p class="p-4 font-semibold">Number of Developers: <span class="font-light"><%= project.number_of_developers%></span></p>
@@ -232,6 +234,7 @@ Note - raise params.inspect
 [] User login
 ## Note: When building models with resource, remember to add --no-test-framework
 ## Associations
+- Note - db:migrate:reset does db:drop, db:create, db:migrate does db:drop, db:create and db:migrate
     # Project 
         - has_many :resources
         - has_many :technologies, through: :resources
@@ -242,6 +245,7 @@ Note - raise params.inspect
         - belongs_to Project
         - belongs_to Technology
         - url:string ? 
+
             Note - This model can be renamed
 Note - Video - 5/4 FT Rails Models, Routes, Forms, Path Helpers ~ hour
 
