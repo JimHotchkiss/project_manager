@@ -3,10 +3,14 @@ class Resource < ApplicationRecord
     belongs_to :technology
 
     def technology_attributes=(technology_attribute)
-        if !technology_attribute[:name].blank?
+        if !technology_attribute[:name].blank? 
             self.technology = Technology.find_or_create_by(name: technology_attribute[:name])
         end 
     end 
+
+    # && !Technology.find_by(name: technology_attribute[:name])
+    #         binding.pry
+    #         self.technology = Technology.create(name: technology_attribute[:name])
 
 
    

@@ -14,6 +14,7 @@ class Project < ApplicationRecord
     def resources_attributes=(resources_attributes)
         resources_attributes.values.each do |resource_attribute|
             if !resource_attribute[:url].blank?
+                # self.resource_build(url: resource_attribute[:url])
                 self.resources << Resource.create(resource_attribute)
             end 
         end

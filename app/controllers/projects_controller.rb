@@ -20,8 +20,15 @@ class ProjectsController < ApplicationController
 
     def create 
         @project = Project.new(project_params)
-        @project.save
-        redirect_to project_path(@project)
+        if @project.save
+            redirect_to project_path(@project)
+        else 
+            3.times do 
+                resource = @project.resources.build
+                resource.build_technology
+            end 
+            render :new
+        end 
     end 
 
     private 

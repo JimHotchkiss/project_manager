@@ -278,6 +278,9 @@ Note - raise params.inspect
             - If we now throw pry(s) into resources_attributes (under the resources_attributes.value.each do)
             and into the techology_attributes, when we hit the resources_attibutes, we can type in Resource.create(resource_attribute). We'll now hit the technology_attribute in the Resource model.
                 * Note - With a join table, you should NOT use .find_or_create_by
+# Update - Made good headway today
+    * We can still select a technology and manually enter the same technology, and though it won't persist it does get shoveled into our self.resources
+    
 
 
 
