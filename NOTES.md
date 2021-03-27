@@ -234,14 +234,63 @@ Note - raise params.inspect
             </div>
 # 3/27/2021
 [] Add the Resource attribute 'url'
+    () Double nested forms - Associating the Resource join table with the Technology Table
+        () First we need to update our form to include resources.
+            - It will go Projects --> Resources --> Technologies
+            - One of the big differences with our double nested form, is our technologies model isn't dictated by @project with the prefix variable 'f', but rather our resource model, and the associated prefix variable, in thie case, resource_fields (I wrote it out explitly, for the clarity)
+                 <%= f.fields_for :resources do |resources_fields| %>
+
+                    <div class="mb-1">Add a Technology</div>
+                    <div class=" flex flex-col mb-3">
+                        <%= resources_fields.fields_for :technologies do |technologies_fields| %>
+                            <%= technologies_fields.text_field :name, class:"mb-3 h-9 focus:outline-none" %>
+                        <% end %>
+                    </div>
+            
+            - We now have to tell the form about this association
+                * We need to go to our Project controller, and instead of creating a @technology.build, we want to create a @resources.build
+                * Then we'll reference technologies through the relationship between resources and technologies
+            Noted: At this point, be sure to inspect the form, and what the form_for is creating. Namely, look at the relationship
+                * <input class="mb-3 h-9 focus:outline-none" type="text" name="project  [resources_attributes][0][technologies][name]" id="project_resources_attributes_0_technologies_name">
+                - However, we want our technologies[name] to read technologies_attributes[name]
+                    * We want to move our technolories_attributes to the Resource model, and change it from plural to singular, technology_attributes
+                    * This is done in the Project model in the resources_attributes method
+            Note: When doing nested form, the sigular and plural matter. For instance, we updated the Recourse model to reflect technology_attributes, in order to get technologies_attributes[name] in our forms, but it didn't reflect appropriate in our form.
+            In the form, nested under resource, it still read resources_fields.fields_for :technologies. This pluralization of techology prevented the form from creating the technologies_attributes[name]
+            - Now we need to tell our controllers that we want to build an ingredient. So we'll go into our Project controller, and utilize the technology_build method, that the belongs_to association gives us. 
+                *  {@project.resources.build} was replaced with a block 
+                    3.times do 
+                        resource = @project.resources.build
+                        resource.build_technology
+                    end 
+                * Now we have the technologies_attributes[name] in our form that we need
+            - Now we want to update our recipe_params to reflect our new association
+                * project[resources_attributes][0][technology_attributes][name]
+                    - resources_attributes:[technology_attributes:["name"]]
+            - Be sure to throw a pry into the Project create, and make sure that our strong params are indeed working. 
+                <ActionController::Parameters {"title"=>"Test Double Nested Form", "description"=>"Test double nested form", "number_of_developers"=>"2", "technology_ids"=>["1"], "resources_attributes"=><ActionController::Parameters {"0"=><ActionController::Parameters {"technology_attributes"=><ActionController::Parameters {"name"=>"C#"} permitted: true>} permitted: true>, "1"=><ActionController::Parameters {"technology_attributes"=><ActionController::Parameters {"name"=>""} permitted: true>} permitted: true>, "2"=><ActionController::Parameters {"technology_attributes"=><ActionController::Parameters {"name"=>""} permitted: true>} permitted: true>} permitted: true>} permitted: true>
+            - Once our strong params are working, throw a pry in both the resources_attributes and the technology_attributes methods in the Project and Resource model, respectively.
+            - Let now add our resource field to our form
+                * At this point we do need to add, in this case, our url attribute to the project_params
+                    params.require(:project).permit(:title, :description, :number_of_developers, technology_ids:[], resources_attributes:[:url, technology_attributes:[:name]]
+                        * Note - technology_attributes is nested in resources_attributes, after the :url attribute
+                            - Also, if resource ends up having more attributes we woul just list them after the :url
+            - If we now throw pry(s) into resources_attributes (under the resources_attributes.value.each do)
+            and into the techology_attributes, when we hit the resources_attibutes, we can type in Resource.create(resource_attribute). We'll now hit the technology_attribute in the Resource model.
+                * Note - With a join table, you should NOT use .find_or_create_by
+
+
+
+    () Custom writer - If you create a custom writer, you can't use accepts_attributes_...
     - Find good resource to review.
     -  <!-- Create Resource-->
-        <div class="mb-1">Add a Resource</div>
-        <div class=" flex flex-col mb-3">
-            <%= f.fields_for :resources do |resources_fields| %>
-                <%= resources_fields.text_field :url, class:"mb-3 h-9 focus:outline-none" %>
-            <% end %>
-        </div>
+          <div class="mb-1">Add a Resource</div>
+           <div class=" flex flex-col mb-3">
+           <%= f.fields_for :resources do |resources_fields| %>
+               <%= resources_fields.text_field :url, class:"mb-3 h-9 focus:outline-none" %>
+           <% end %>
+          </div>
+
 [] User login
 
 

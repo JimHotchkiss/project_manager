@@ -39,21 +39,28 @@
             <% end %>  
         </div>
 
-        <!-- Create Technology-->
-        <div class="mb-1">Add a Technology</div>
-        <div class=" flex flex-col mb-3">
-            <%= f.fields_for :technologies do |technologies_fields| %>
-                <%= technologies_fields.text_field :name, class:"mb-3 h-9 focus:outline-none" %>
-            <% end %>
+        <!-- Create Double Nested Form -->
+        <div>
+            <h1 class="mb-3 font-semibold">Add Technologies and Resources URL</h1>
         </div>
+        <%= f.fields_for :resources do |resources| %>
+           
+            
+            <div class=" flex flex-col mb-3">
+                <%= resources.fields_for :technology do |technologies| %>
+                    <%= technologies.label :technology,  :class => "mb-1" %>
+                    <%= technologies.text_field :name, class:"mb-3 h-9 focus:outline-none" %>
+                <% end %>
+            </div>
 
-       <!-- Create Resource-->
-       <div class="mb-1">Add a Resource</div>
-       <div class=" flex flex-col mb-3">
-           <%= f.fields_for :resources do |resources_fields| %>
-               <%= resources_fields.text_field :url, class:"mb-3 h-9 focus:outline-none" %>
-           <% end %>
-       </div>
+            <div class="flex flex-col mb-3">
+                <%= resources.label :url,  :class => "mb-1" %>
+                <%= resources.text_field :url, class:"mb-3 h-9 focus:outline-none" %>
+            </div>
+        <%end %>
+
+
+     
 
         <!-- Number of Developers-->
         <div class=" flex flex-col mb-3">
