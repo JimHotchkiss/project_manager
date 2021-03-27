@@ -189,7 +189,7 @@ Note - raise params.inspect
              accepts_nested_attributes_for :category, reject_if: proc { |attributes| attributes['name'].blank? }
 
 # 3/26/2021
-    [] Look at params in the Project model. It instantiating an empty attribute.
+    [X] Look at params in the Project model. It instantiating an empty attribute.
         Note - It seems that the technologies_attributers is intantiating a blank string, but only on the first.
         - This is the code from _form that is the nested technologies part
             <!-- Create Technology-->
@@ -207,8 +207,8 @@ Note - raise params.inspect
                 <div class=" flex flex-col mb-3">
             </div>
         * So when I remove the nested portion, an empty object is NOT instantiated. The issue is coming from the fields for. 
-[X] Switch to ProjectTechnology as join-table
-    () Delete Resource:
+[X] Switch to Resources as join-table
+    (x) Delete ProjectTechnology:
     (x) Controller
     (x) Model
     (x) View
@@ -216,6 +216,7 @@ Note - raise params.inspect
     (x) Delete resource migration
         t.belongs_to :technology, foreign_key: true
         t.belongs_to :project, foreign_key: true
+        t.string :url
     (x) Delete route
 ### When I use accepts_nested_ it does not create a blank entry for Technology, but it allows duplicates. If I use custom setter, it does not allow duplicates, but will allow blanks.
 #### Some of my confusion is that I'm trying to image one join table, but what I really need is two: One for ProjectTechnology and one for Resource
@@ -231,7 +232,31 @@ Note - raise params.inspect
                     <p class="pt-1 font-light"><%= technology.name%></p>
                 <% end %>
             </div>
+# 3/27/2021
+[] Add the Resource attribute 'url'
+    - Find good resource to review.
+    -  <!-- Create Resource-->
+        <div class="mb-1">Add a Resource</div>
+        <div class=" flex flex-col mb-3">
+            <%= f.fields_for :resources do |resources_fields| %>
+                <%= resources_fields.text_field :url, class:"mb-3 h-9 focus:outline-none" %>
+            <% end %>
+        </div>
 [] User login
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Note: When building models with resource, remember to add --no-test-framework
 ## Associations
 - Note - db:migrate:reset does db:drop, db:create, db:migrate does db:drop, db:create and db:migrate

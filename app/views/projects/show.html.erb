@@ -9,5 +9,11 @@
                 <p class="pt-1 font-light"><%= technology.name%></p>
             <% end %>
         </div>
+        <div class="ml-4 mb-6 max-w-md">
+            <p class="font-semibold">Resources:</p>
+            <% @project.resources.each do |resource|  %>
+                <p class="pt-1 font-light"><%= resource.url%></p>
+            <% end %>
+        </div>
     </div>
 </div>

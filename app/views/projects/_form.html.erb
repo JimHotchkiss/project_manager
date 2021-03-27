@@ -2,7 +2,7 @@
     <%= form_for(@project) do |f| %>
         <div class="
             sm:m-auto 
-            sm:mt-24 
+            sm:mt-8 
             mx-3 
             my-3 
             max-w-lg  
@@ -25,7 +25,7 @@
         <!-- List of Technologies -->
         <div class="">Technologies</div>
         <div class="mb-3 max-w-md p-1  flex flex-row flex-wrap">
-            <%= f.collection_check_boxes(:technology_ids, Technology.all, :id, :name, include_hidden: false) do |t| %>
+            <%= f.collection_check_boxes(:technology_ids, @technologies, :id, :name, include_hidden: false) do |t| %>
                 <div class="flex flex-row mt-1"
                     <%= t.label class:"" do%>
                     <div class="mt-0.5">    
@@ -47,7 +47,15 @@
             <% end %>
         </div>
 
+       <!-- Create Resource-->
+       <div class="mb-1">Add a Resource</div>
+       <div class=" flex flex-col mb-3">
+           <%= f.fields_for :resources do |resources_fields| %>
+               <%= resources_fields.text_field :url, class:"mb-3 h-9 focus:outline-none" %>
+           <% end %>
+       </div>
 
+        <!-- Number of Developers-->
         <div class=" flex flex-col mb-3">
             <%= f.label :number_of_developers, :class => "mb-1" %>
             <%= f.text_field :number_of_developers, :class => "h-9 focus:outline-none" %>

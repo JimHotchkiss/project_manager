@@ -7,8 +7,9 @@ class ProjectsController < ApplicationController
 
     def new 
         @project = Project.new
-        @project.technologies.build
+        @technologies = Technology.all
         3.times{@project.technologies.build}
+        @project.resources.build
     end 
 
     def show 
@@ -23,6 +24,6 @@ class ProjectsController < ApplicationController
 
     private 
     def project_params
-        params.require(:project).permit(:title, :description, :number_of_developers, technology_ids:[], technologies_attributes:['name'])
+        params.require(:project).permit(:title, :description, :number_of_developers, technology_ids:[], technologies_attributes:['name'], resources_attributes:['url'])
       end
 end
