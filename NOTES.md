@@ -282,8 +282,104 @@ Note - raise params.inspect
     * We can still select a technology and manually enter the same technology, and though it won't persist it does get shoveled into our self.resources
         - In Project:  && !self.resources.include?(resource_attribute[:technology_attributes]) doesn't prevent adding the technology object.
 [] Create User (Developer?)
+    () Developer 
+        (x) gem 'bcrypt'
+            - Bundle install
+        (x) Developer Table 
+            (x) password_digest
+            (x) username
+            (x) email
+        (x) Developer Model
+            (x) has_secure_password
+        () Developoer Form
+            [] NOTE - Form will not submit
+                - Possibly missing div?
+                <%= form_for(@developer) do |f| %>
+    <div class="
+            sm:m-auto 
+            sm:mt-8 
+            mx-3 
+            my-3 
+            max-w-lg  
+            bg-gray-100 
+            border 
+            border-gray-300 
+            p-7">
+        <div>
+            <h1 class="text-xl font-semibold  mb-5">Register as a Developer</h1>
+        </div>
+        <div class="
+                sm:m-auto 
+                sm:mt-8 
+                max-w-lg  
+                bg-gray-100 
+                border-gray-300">
+
+
+            <div class="flex flex-col mb-3">
+                <%= f.label :username %>
+                <%= f.text_field :username, :class => "mb-3 h-9 focus:outline-none" %>
+            </div>
+
+            <div class="flex flex-col mb-3">
+                <%= f.label :email %>
+                <%= f.text_field :email, :class => "mb-3 h-9 focus:outline-none" %>
+            </div>
+
+            <div class="flex flex-col mb-3">
+                <%= f.label :password %>
+                <%= f.password_field :password, :class => "mb-3 h-9 focus:outline-none" %>
+            </div>
+
+            <div class="flex flex-col mb-3">
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, :class => "mb-3 h-9 focus:outline-none" %>
+            </div>
+            <!-- last div-->
+            <div>
+                <%= f.submit 'Register', :class => 'w-full 
+                                                border 
+                                                hover:border-black 
+                                                transition-all 
+                                                hover:bg-yellow-500 
+                                                mt-5 
+                                                px-5 
+                                                py-2 
+                                                rounded-md 
+                                                cursor-pointer 
+                                                focus:outline-none 
+                                                bg-yellow-400' %>
+            </div>
+        </div>
+    </div>
+<% end %>
+
     () Register
     () Login
+Note - Removed Assign and Join button from projects/index
+     <%= button_to "Details", project_path(project), :class => "
+                           m-3 
+                           mb-5
+                           px-6 
+                           py-1 
+                           bg-yellow-400
+                           rounded
+                           focus:outline-none 
+                           border
+                           hover:border-black
+                           transition-all
+                           hover:bg-yellow-500", :method => :get %>
+        <button class="m-3 
+                mb-5
+                px-6 
+                py-1 
+                bg-yellow-400
+                rounded
+                focus:outline-none 
+                border
+                hover:border-black
+                transition-all
+                hover:bg-yellow-500">Join</button>
 
 
 

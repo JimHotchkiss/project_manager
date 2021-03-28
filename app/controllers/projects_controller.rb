@@ -34,5 +34,5 @@ class ProjectsController < ApplicationController
     private 
     def project_params
         params.require(:project).permit(:title, :description, :number_of_developers, technology_ids:[], resources_attributes:[:url, technology_attributes:[:name]])
-      end
+    end
 end
