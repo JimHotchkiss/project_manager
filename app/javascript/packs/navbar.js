@@ -15,7 +15,6 @@ const menuEventListener = () => {
       middle.classList.replace("w-5", "w-7")
       middle.classList.add("transition-all")
       nav.classList.replace("h-12", "h-40")
-      nav.classList.add("transition-all")
     } else {
       console.log(top.classList[1] === "w-3")
       top.classList.replace("w-7", "w-3")
