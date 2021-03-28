@@ -1,10 +1,15 @@
 <nav id="nav" class="
     bg-gray-100
-    h-16
+    h-12
     flex
-    pt-5
-    justify-around">
-    <div class="
+    flex-col
+    pt-3
+    overflow-hidden
+    transition-all
+    ">
+    <div>
+    <div class="flex">
+        <div class="
         ml-5
         sm:ml-12
         items-center
@@ -12,42 +17,53 @@
         font-bold
         text-black
         flex-grow">The <span class="text-yellow-500 ml-1">Project</span>Manager
-    </div>
-    <div class="
+        </div>
+        <div class="
         hidden 
         md:block
         mr-12 
         ">
-        <ul class="flex flex-row font-light">
-            <li class="mx-3 hover:text-yellow-400 transition-all text-black cursor-pointer">Login</li>
-            <li class="mx-3 hover:text-yellow-400 transition-all text-black cursor-pointer"><%= link_to "Open Projects", projects_path %></li>
-            <li class="mx-3 hover:text-yellow-400 transition-all text-black cursor-pointer">My Projects</li>
+            <ul class="flex flex-row font-light">
+                <li class="mx-3 hover:text-yellow-400 transition-all text-black cursor-pointer">Login</li>
+                <li class="mx-3 hover:text-yellow-400 transition-all text-black cursor-pointer"><%= link_to "Open Projects", projects_path %></li>
+                <li class="mx-3 hover:text-yellow-400 transition-all text-black cursor-pointer">My Projects</li>
             <li class="mx-3 hover:text-yellow-400 transition-all text-black cursor-pointer"><%= link_to "Create Project", new_project_path %></li>
-        </ul>
-    </div>
-    <div id="menu" class="
+            </ul>
+        </div>
+        <div id="menu" class="
         md:hidden
         mr-5
         min-h-9
         w-7 
         cursor-pointer
         ">
-        <div id="top"class="
+            <div id="top"class="
             h-1 
             w-3
             bg-yellow-500 
             mb-1
             rounded-sm"></div>
-        <div id="middle" class="
+            <div id="middle" class="
             h-1 
             w-5 
             bg-yellow-500 
             mb-1
             rounded-sm"></div>
-        <div id="bottom" class="
+            <div id="bottom" class="
             h-1 
             w-7 
             bg-yellow-500
             rounded-sm"></div>
+        </div>
+        </div>
+        <!-- Hidden Navigation-->
+        <div class="pt-2 ml-12">
+            <ul class="flex flex-col font-light">
+                <li class="mx-3 hover:text-yellow-400 transition-all text-black cursor-pointer">Login</li>
+                <li class="mx-3 hover:text-yellow-400 transition-all text-black cursor-pointer"><%= link_to "Open Projects", projects_path %></li>
+                <li class="mx-3 hover:text-yellow-400 transition-all text-black cursor-pointer">My Projects</li>
+                <li class="mx-3 hover:text-yellow-400 transition-all text-black cursor-pointer"><%= link_to "Create Project", new_project_path %></li>
+            </ul>
+        </div>
     </div>
 </nav

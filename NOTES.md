@@ -280,7 +280,11 @@ Note - raise params.inspect
                 * Note - With a join table, you should NOT use .find_or_create_by
 # Update - Made good headway today
     * We can still select a technology and manually enter the same technology, and though it won't persist it does get shoveled into our self.resources
-    
+        - In Project:  && !self.resources.include?(resource_attribute[:technology_attributes]) doesn't prevent adding the technology object.
+[] Create User (Developer?)
+    () Register
+    () Login
+
 
 
 
