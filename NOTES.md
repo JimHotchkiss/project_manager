@@ -291,99 +291,43 @@ Note - raise params.inspect
             (x) email
         (x) Developer Model
             (x) has_secure_password
-        () Developoer Form
-            [] NOTE - Form will not submit
-                - Possibly missing div?
-                <%= form_for(@developer) do |f| %>
-    <div class="
-            sm:m-auto 
-            sm:mt-8 
-            mx-3 
-            my-3 
-            max-w-lg  
-            bg-gray-100 
-            border 
-            border-gray-300 
-            p-7">
-        <div>
-            <h1 class="text-xl font-semibold  mb-5">Register as a Developer</h1>
-        </div>
-        <div class="
-                sm:m-auto 
-                sm:mt-8 
-                max-w-lg  
-                bg-gray-100 
-                border-gray-300">
+        (x) Developer Form
+            [X] NOTE - Form will not submit
+                - Fixed - You have to enclose a form_for in a div!
+            (x) Validation - uniqueness
+                - validation :username, uniqueness: true, presence: true
+            (x) Register
+            (x) Login
+                - Note: Controller, when using generator, should be plural, rails g controller Sessions
+                - Note: @user.authenticate(params[:user][:password]) - do not put in the authenticate method password: params[:user][:password]. I did, and it drove me crazy
+                (x) Urls 
+                    (x) get '/login', to: 'sessions#new'
+                    (x) post '/login', to: 'sessions#create'
+                    (x) delete '/logout', to: 'sessions#destroy'
+
+    <!-- Facebook Google login-->
+</div>
 
 
-            <div class="flex flex-col mb-3">
-                <%= f.label :username %>
-                <%= f.text_field :username, :class => "mb-3 h-9 focus:outline-none" %>
-            </div>
 
-            <div class="flex flex-col mb-3">
-                <%= f.label :email %>
-                <%= f.text_field :email, :class => "mb-3 h-9 focus:outline-none" %>
-            </div>
-
-            <div class="flex flex-col mb-3">
-                <%= f.label :password %>
-                <%= f.password_field :password, :class => "mb-3 h-9 focus:outline-none" %>
-            </div>
-
-            <div class="flex flex-col mb-3">
-                <%= f.label :password_confirmation %>
-                <%= f.password_field :password_confirmation, :class => "mb-3 h-9 focus:outline-none" %>
-            </div>
-            <!-- last div-->
-            <div>
-                <%= f.submit 'Register', :class => 'w-full 
-                                                border 
-                                                hover:border-black 
-                                                transition-all 
-                                                hover:bg-yellow-500 
-                                                mt-5 
-                                                px-5 
-                                                py-2 
-                                                rounded-md 
-                                                cursor-pointer 
-                                                focus:outline-none 
-                                                bg-yellow-400' %>
-            </div>
+[] Validations - Validations are there to project the database, to make sure that 'bad' data is not sent to the database
+    - 'require' in forms field are for the benifit of the user and the UI
+Resource - Facebook and Google buttons
+    <div class=" bg-gray-300">
+    <div class="container flex justify-center py-20">
+        <div class="p-8 bg-white rounded-lg max-w-md pb-10">
+            <div class="flex justify-center mb-4"> <img src="https://i.imgur.com/f6Tb5U1.png" width="70"> </div> <input type="text" class="h-12 rounded w-full border px-3 focus:text-black focus:border-blue-100" placeholder="Name"> <input type="text" class="h-12 mt-3 rounded w-full border px-3 focus:text-black focus:border-blue-100" placeholder="Email"> <input type="text" class="h-12 mt-3 rounded w-full border px-3 focus:text-black focus:border-blue-100" placeholder="Password"> <input type="text" class="h-12 mt-3 rounded w-full border px-3 focus:text-black focus:border-blue-100" placeholder=" Retype password"> <button class="uppercase h-12 mt-3 text-white w-full rounded bg-red-700 hover:bg-red-800">Register</button>
+            <div class="flex justify-between items-center mt-3">
+                <hr class="w-full"> <span class="p-2 text-gray-400 mb-1">OR</span>
+                <hr class="w-full">
+            </div> <button class="uppercase h-12 mt-3 text-white w-full rounded bg-blue-800 hover:bg-blue-900"><i class="fa fa-facebook mr-2"></i>Facebook</button> <button class="uppercase h-12 mt-3 text-white w-full rounded bg-red-800 hover:bg-red-900"><i class="fa fa-google mr-2"></i>Google</button>
         </div>
     </div>
-<% end %>
+</div>
 
-    () Register
-    () Login
-Note - Removed Assign and Join button from projects/index
-     <%= button_to "Details", project_path(project), :class => "
-                           m-3 
-                           mb-5
-                           px-6 
-                           py-1 
-                           bg-yellow-400
-                           rounded
-                           focus:outline-none 
-                           border
-                           hover:border-black
-                           transition-all
-                           hover:bg-yellow-500", :method => :get %>
-        <button class="m-3 
-                mb-5
-                px-6 
-                py-1 
-                bg-yellow-400
-                rounded
-                focus:outline-none 
-                border
-                hover:border-black
-                transition-all
-                hover:bg-yellow-500">Join</button>
+              
 
-
-
-
+   
     () Custom writer - If you create a custom writer, you can't use accepts_attributes_...
     - Find good resource to review.
     -  <!-- Create Resource-->

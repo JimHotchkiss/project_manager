@@ -21,9 +21,13 @@
             <%= f.label :description, :class => "mb-1" %>
             <%= f.text_area :description, :class => "mb-3 focus:outline-none" %>
         </div>
-
-        <!-- List of Technologies -->
+        <!-- Technologies title-->
+        <% if @technologies.length == 0 %>
+        <div class="-mb-3"></div>
+        <% else %>
         <div class="">Technologies</div>
+        <% end %>
+        <!-- List of Technologies -->
         <div class="mb-3 max-w-md p-1  flex flex-row flex-wrap">
             <%= f.collection_check_boxes(:technology_ids, @technologies, :id, :name, include_hidden: false, include_blank: true) do |t| %>
                 <div class="flex flex-row mt-1"
@@ -76,6 +80,7 @@
                                                         mt-5 
                                                         px-5 
                                                         py-2 
+                                                        h-12
                                                         rounded-md 
                                                         cursor-pointer 
                                                         focus:outline-none 

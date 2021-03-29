@@ -1,5 +1,6 @@
 <div>
-    <%= form_for(@developer) do |f| %>
+    <div>
+    <%= form_for(:user) do |f| %>
         <div class="
             sm:m-auto 
             sm:mt-8 
@@ -11,7 +12,8 @@
             border-gray-300 
             p-7">
             <div>
-                <h1 class="text-xl font-semibold  mb-5">Register as a Developer</h1>
+                <h1 class="text-xl font-semibold  mb-5">Login</h1>
+                <p class="text-red-600"><%= flash[:error] %>
             </div>
             <div class="
                 sm:m-auto 
@@ -36,13 +38,9 @@
                     <%= f.password_field :password, :class => "mb-3 h-9 focus:outline-none" %>
                 </div>
 
-                <div class="flex flex-col mb-3">
-                    <%= f.label :password_confirmation %>
-                    <%= f.password_field :password_confirmation, :class => "mb-3 h-9 focus:outline-none" %>
-                </div>
             <!-- last div-->
                 <div>
-                    <%= f.submit 'Register', :class => 'w-full 
+                    <%= f.submit 'Login', :class => 'w-full 
                                                 border 
                                                 hover:border-black 
                                                 transition-all 
@@ -57,7 +55,40 @@
                                                 bg-yellow-400' %>
                 </div>
             </div>
+            <!-- Facebook Google login-->
+            <div class="flex items-center mt-4 justify-center">
+                <span class="text-gray-400">OR</span>
+            </div>
+            <div class="max-w-lg 
+                        flex 
+                        flex-col 
+                        justify-center 
+                        mt-3">
+                <button class="uppercase 
+                                h-12 
+                                text-white 
+                                w-full 
+                                rounded 
+                                bg-blue-800 
+                                hover:bg-blue-900
+                                focus:outline-none 
+                                transition-all"><i class="fa fa-facebook mr-2"></i>Facebook</button> 
+                <button class="uppercase 
+                                h-12 
+                                mt-3 
+                                text-white 
+                                w-full 
+                                rounded 
+                                bg-red-700 
+                                hover:bg-red-900
+                                focus:outline-none 
+                                transition-all"><i class="fa fa-google mr-2"></i>Google</button>
+            </div>
+        <!-- End Facebook-->
         </div>
-    <% end %>
-</div>
 
+    <% end %>
+
+  
+    </div>
+</div>

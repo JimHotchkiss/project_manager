@@ -14,12 +14,12 @@ const menuEventListener = () => {
       top.classList.add("transition-all")
       middle.classList.replace("w-5", "w-7")
       middle.classList.add("transition-all")
-      nav.classList.replace("h-12", "h-40")
+      nav.classList.replace("h-12", "h-44")
     } else {
       console.log(top.classList[1] === "w-3")
       top.classList.replace("w-7", "w-3")
       middle.classList.replace("w-7", "w-5")
-      nav.classList.replace("h-40", "h-12")
+      nav.classList.replace("h-44", "h-12")
     }
   })
 }
