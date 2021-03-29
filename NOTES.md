@@ -312,6 +312,16 @@ Note - raise params.inspect
 
 [] Validations - Validations are there to project the database, to make sure that 'bad' data is not sent to the database
     - 'require' in forms field are for the benifit of the user and the UI
+    () Add errors and validation to Registration and Login
+    Note: Having issues sorting out errors - I don't think it's very hard, I'm just tired.
+       <!-- Errors -->
+        <%= render partial: 'layouts/errors', locals: {object: @project}%>
+
+
+
+
+
+
 Resource - Facebook and Google buttons
     <div class=" bg-gray-300">
     <div class="container flex justify-center py-20">

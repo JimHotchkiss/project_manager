@@ -1,4 +1,19 @@
 <div>
+
+    <% if @developer.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(@developer.errors.count, "error") %> prohibited this developer from being saved:</h2>
+        <ul>
+        <% @developer.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+        <% end %>
+        </ul>
+    </div>
+    <% end %>
+
+
+
+
     <%= form_for(@developer) do |f| %>
         <div class="
             sm:m-auto 
