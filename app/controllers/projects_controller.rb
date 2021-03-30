@@ -23,7 +23,7 @@ class ProjectsController < ApplicationController
         if @project.save
             redirect_to project_path(@project)
         else 
-            # @technologies = Technology.all
+            @technologies = Technology.all
             3.times do 
                 resource = @project.resources.build
                 resource.build_technology
