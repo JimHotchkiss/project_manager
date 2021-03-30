@@ -37,5 +37,10 @@
                 <p class="pt-1 font-light"><%= resource.url%></p>
             <% end %>
         </div>
+        <div class="flex flex-row justify-around">
+        <p class="pb-4  text-yellow-500 hover:text-yellow-700 transition-all" ><%= link_to "edit", edit_project_path %></p>
+        <p class="pb-4  text-yellow-500 hover:text-yellow-700 transition-all" ><%= link_to "delete", project_path, method: :delete %></p>
+        </div>
+        
     </div>
 </div>

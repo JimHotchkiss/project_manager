@@ -309,6 +309,18 @@ Note - raise params.inspect
 </div>
 
 
+# 3/30/2021
+    [] Update 
+        - My checkmarks are not behaving correctly. They populate both the checkboxes and the text input
+        () Whenever the page rerenders, whether through edit or validations, the form doesn't behave correctly.
+    [] Create - Assign a user to a Project
+        - The simply-vegan app is a good resource
+        () User has many projects
+        () Project belongs to project
+        () Show 'My Projects'
+    
+
+
 
 [] Validations - Validations are there to project the database, to make sure that 'bad' data is not sent to the database
     - 'require' in forms field are for the benifit of the user and the UI
