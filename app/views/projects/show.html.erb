@@ -15,11 +15,13 @@
             <div id="button"class="text-yellow-500
                                     mt-4
                                     ml-48
+                                    sm:ml-auto
+                                    sm:mr-12
                                     transition-all
                                     duration-1000 
                                     ease-in-out
                                     hover:text-yellow-700 
-                                    cursor-pointer ">See less</div>
+                                    cursor-pointer "><i id="icon" class="fas fa-chevron-up"></i></div>
         </div>
         <p class="p-4 font-semibold">Project Description: <span class="font-light"><%= @project.description%></span></p>
         <p class="p-4 font-semibold">Number of Developers: <span class="font-light"><%= @project.number_of_developers%></span></p>

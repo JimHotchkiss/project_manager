@@ -11,7 +11,7 @@ class DevelopersController < ApplicationController
             flash[:message] = "You are signed in."
             redirect_to projects_path
         else 
-            render new
+            render :new
         end 
     end 
 

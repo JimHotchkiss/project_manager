@@ -314,6 +314,8 @@ Note - raise params.inspect
     - 'require' in forms field are for the benifit of the user and the UI
     () Add errors and validation to Registration and Login
     Note: Having issues sorting out errors - I don't think it's very hard, I'm just tired.
+# Note: Unable to get validations to work correctly.
+    - Throw in a binding.pry, after the else, in the create method, and see if the instance variable is still their.
        <!-- Errors -->
         <%= render partial: 'layouts/errors', locals: {object: @project}%>
 
