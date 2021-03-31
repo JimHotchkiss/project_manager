@@ -4,6 +4,7 @@ class CreateProjects < ActiveRecord::Migration[6.0]
       t.string :title
       t.integer :number_of_developers
       t.text :description
+      t.integer :developer_id
 
       t.timestamps
     end

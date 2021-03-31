@@ -2,16 +2,19 @@ class ProjectsController < ApplicationController
     require 'pry'
 
     def index 
-        @projects = Project.all
+        if params[:developer_id]
+            @projects = Developer.find(params[:developer_id]).projects
+          else
+            @projects = Project.all
+          end
     end 
 
     def new 
         @project = Project.new
         @technologies = Technology.all
-        3.times do 
-            resource = @project.resources.build
-            resource.build_technology
-        end 
+        resource = @project.resources.build
+        resource.build_technology
+     
     end 
 
     def show 
@@ -20,25 +23,22 @@ class ProjectsController < ApplicationController
 
     def create 
         @project = Project.new(project_params)
+        @project.developer_id = current_user.id
         if @project.save
             redirect_to project_path(@project)
         else 
             @technologies = Technology.all
-            3.times do 
-                resource = @project.resources.build
-                resource.build_technology
-            end 
+            resource = @project.resources.build
+            resource.build_technology
             render :new
         end 
     end 
 
     def edit 
         @project = Project.find(params[:id])
-        @technologies = Technology.all
-        3.times do 
-            resource = @project.resources.build
-            resource.build_technology
-        end 
+        resource = @project.resources.build
+        resource.build_technology
+    
     end 
 
     def update 

@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2021_03_28_140829) do
     t.string "title"
     t.integer "number_of_developers"
     t.text "description"
+    t.integer "developer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

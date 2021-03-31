@@ -27,6 +27,8 @@
             <%= f.label :description, :class => "mb-1" %>
             <%= f.text_area :description, :class => "mb-3 focus:outline-none" %>
         </div>
+
+        <% if !@technologies == nil%>
         <!-- Technologies title-->
         <% if @technologies.length == 0 %>
         <div class="-mb-3"></div>
@@ -35,7 +37,7 @@
         <% end %>
         <!-- List of Technologies -->
         <div class="mb-3 max-w-md p-1  flex flex-row flex-wrap">
-            <%= f.collection_check_boxes(:technology_ids, @technologies, :id, :name, include_hidden: false, include_blank: true) do |t| %>
+            <%= f.collection_check_boxes(:technology_ids, @project.technologies, :id, :name, include_blank: true) do |t| %>
                 <div class="flex flex-row mt-1"
                     <%= t.label class:"" do%>
                     <div class="mt-0.5">    
@@ -48,6 +50,33 @@
                 <% end %>
             <% end %>  
         </div>
+
+        <% else %>
+
+        <!-- Technologies title-->
+        <% if @project.technologies.length == 0 %>
+        <div class="-mb-3"></div>
+        <% else %>
+        <div class="">Technologies</div>
+        <% end %>
+
+        <!-- List of Technologies -->
+        <div class="mb-3 max-w-md p-1  flex flex-row flex-wrap">
+            <%= f.collection_check_boxes(:technology_ids, @project.technologies, :id, :name, include_blank: true) do |t| %>
+                <div class="flex flex-row mt-1"
+                    <%= t.label class:"" do%>
+                    <div class="mt-0.5">    
+                        <%=t.check_box class:"form-checkbox h-5 w-5 text-gray-600 checked" %>
+                    </div>
+                    <div class="ml-1.5 mr-2 text-yellow-500">    
+                        <%=t.text%>
+                    </div>
+                </div>
+                <% end %>
+            <% end %>  
+        </div>
+
+       <% end %>
 
         <!-- Create Double Nested Form -->
         <div>
@@ -75,7 +104,7 @@
             <%= f.text_field :number_of_developers, :class => "h-9 focus:outline-none" %>
         </div>
         <div>
-            <%= f.submit 'Submit Project', :class => 'w-full 
+            <%= f.submit 'Edit', :class => 'w-full 
                                                         border 
                                                         hover:border-black 
                                                         transition-all 

@@ -27,14 +27,14 @@
             <%= f.label :description, :class => "mb-1" %>
             <%= f.text_area :description, :class => "mb-3 focus:outline-none" %>
         </div>
+        
         <!-- Technologies title-->
-        <% if @technologies.length == 0 %>
-        <div class="-mb-3"></div>
+        <% if @technologies.length == 0  %>
+            <div class="-mb-3"></div>
         <% else %>
-        <div class="">Technologies</div>
+            <div class="">Technologies</div>
         <% end %>
-        <!-- List of Technologies -->
-        <div class="mb-3 max-w-md p-1  flex flex-row flex-wrap">
+            <div class="mb-3 max-w-md p-1  flex flex-row flex-wrap">
             <%= f.collection_check_boxes(:technology_ids, @technologies, :id, :name, include_hidden: false, include_blank: true) do |t| %>
                 <div class="flex flex-row mt-1"
                     <%= t.label class:"" do%>
@@ -48,6 +48,7 @@
                 <% end %>
             <% end %>  
         </div>
+        
 
         <!-- Create Double Nested Form -->
         <div>

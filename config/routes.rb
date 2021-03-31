@@ -7,5 +7,9 @@ Rails.application.routes.draw do
   resources :developers
   resources :technologies
   resources :projects
+
+  # resources :developers do 
+  #   resources :projects 
+  # end 
   
 end
