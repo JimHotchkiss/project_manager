@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
     def destroy
         session.delete :user_id
         flash[:message] = "You are logged out"
-        redirect_to projects_path
+        redirect_to '/'
       end
     
     

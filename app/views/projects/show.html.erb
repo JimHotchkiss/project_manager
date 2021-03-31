@@ -23,6 +23,8 @@
                                     hover:text-yellow-700 
                                     cursor-pointer "><i id="icon" class="fas fa-chevron-up"></i></div>
         </div>
+        <p class="p-4 font-semibold">Project Manager: <span class="font-light"><%= link_to "#{Developer.find(@project.developer_id).username}", developer_projects_path(@project.developer_id) %></li></span></p>
+
         <p class="p-4 font-semibold">Project Description: <span class="font-light"><%= @project.description%></span></p>
         <p class="p-4 font-semibold">Number of Developers: <span class="font-light"><%= @project.number_of_developers%></span></p>
         <div class="ml-4 mb-6 max-w-md">

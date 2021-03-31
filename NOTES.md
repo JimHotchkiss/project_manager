@@ -314,13 +314,17 @@ Note - raise params.inspect
         - My checkmarks are not behaving correctly. They populate both the checkboxes and the text input
         (x) Whenever the page rerenders, whether through edit or validations, the form doesn't behave correctly.
 # Note - In the checkbox, I had include_hidden: false. This didn't allow things to persist
-    [] Create - Assign a user to a Project
+    [X] Create - Assign a user to a Project
         - The simply-vegan app is a good resource
-        () User has many projects
-        () Project belongs to developer
+        (x) User has many projects
+        (x) Project belongs to developer
             () Navbar conditional to show 
         (?) Show 'My Projects' - Need to figure a way to get developer_id and project_id to the navbar
         <li class="mx-3 hover:text-yellow-400 transition-all text-black cursor-pointer"><%= link_to "My Projects", developer_projects_path(current_user) %></li>
+    [] Create static page 
+     () url
+     () controller#index 
+     () view
 
      
     
