@@ -349,14 +349,22 @@ Resource (recent video) https://www.youtube.com/watch?v=9pD0uXLI5uE
                 (x) Application Name
                 (x) Add test user 
                 (x) Dashboard
-        () Create credentials 
-            () Create OAuth Client ID
-            () Application name
-            () Authorize redirect URLs: http://localhost:3000/auth/google_oauth2/callback
-         
-    [] Create .env file 
-        () touch .env - in the root
-        () Add .env to .gitignore 
+        (x) Create credentials 
+            (x) Create OAuth Client ID
+            (x) Application name
+            (x) Authorize redirect URLs: http://localhost:3000/auth/google_oauth2/callback
+            (x) Create
+                * Credentials are created 
+            (x) Put credentials in .env
+        () Middleware - handles the request to Google
+            - config/initializers
+            () omniauth.rd
+            () Rails.application.config.middleware.use  OmniAuth::Builder do
+            provider :google_oauth2, ENV["GOOGLE_CLIENT_ID"],ENV["GOOGLE_CLIENT_SECRET"], skip_jwt: true
+            end
+             * Note - you can add multiple providers, like Github and Facebook
+        () Routes - we need a route for the returning request
+
     
 
      
