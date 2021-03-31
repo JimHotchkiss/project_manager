@@ -330,6 +330,7 @@ Note - raise params.inspect
 Resource (recent video) https://www.youtube.com/watch?v=9pD0uXLI5uE
     [] User (Developer) attributes for authentication
         () uid:string
+        () provider:string
     [] Gems 
         () OmniAuth
         () dotenv-rail
