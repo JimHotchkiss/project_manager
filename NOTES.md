@@ -328,6 +328,8 @@ Note - raise params.inspect
 
 # Google Authentication
 Resource (recent video) https://www.youtube.com/watch?v=9pD0uXLI5uE
+    [] User (Developer) attributes for authentication
+        () uid:string
     [] Gems 
         () OmniAuth
         () dotenv-rail
