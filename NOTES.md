@@ -328,13 +328,18 @@ Note - raise params.inspect
 
 # Google Authentication
 Resource (recent video) https://www.youtube.com/watch?v=9pD0uXLI5uE
-    [] User (Developer) attributes for authentication
-        () uid:string
-        () provider:string
+    [X] User (Developer) attributes for authentication
+        (x) uid:string
+        (x) provider:string
+        (x) schema delete
+        (x) edit Developer 
     [] Gems 
-        () OmniAuth
-        () dotenv-rail
-        () Omni-google-oath (or Facebook)
+        (x) gem 'omniauth'
+        (x) get 'dotenv-rails' - put in development test
+        (x) gem 'omniauth-google-oauth2'- this is specific to which ever platform you're doing authentication through
+        (x) gem "omniauth-rails_csrf_protection"
+        (x) bundle
+    [] Variables from Google
     [] Create .env file 
         () touch .env - in the root
         () Add .env to .gitignore 
