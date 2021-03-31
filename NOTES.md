@@ -321,10 +321,26 @@ Note - raise params.inspect
             () Navbar conditional to show 
         (?) Show 'My Projects' - Need to figure a way to get developer_id and project_id to the navbar
         <li class="mx-3 hover:text-yellow-400 transition-all text-black cursor-pointer"><%= link_to "My Projects", developer_projects_path(current_user) %></li>
-    [] Create static page 
-     () url
-     () controller#index 
-     () view
+    [X] Create static page 
+     (x) url
+     (x) controller#index 
+     (x) view
+
+# Google Authentication
+Resource (recent video) https://www.youtube.com/watch?v=9pD0uXLI5uE
+    [] Gems 
+        () OmniAuth
+        () dotenv-rail
+        () Omni-google-oath (or Facebook)
+    [] Create .env file 
+        () touch .env - in the root
+        () Add .env to .gitignore 
+    [] Google Developers Console
+        () https://console.cloud.google.com/apis/dashboard?pli=1&project=hybrid-text-282213&folder=&organizationId=
+        () Create New Project - In the navbar you'll see a drop down of your project. There's an option to create a new project
+        () Credentials
+            () Create Credentials (top of page)
+            () OAuth Client ID
 
      
     
