@@ -339,16 +339,25 @@ Resource (recent video) https://www.youtube.com/watch?v=9pD0uXLI5uE
         (x) gem 'omniauth-google-oauth2'- this is specific to which ever platform you're doing authentication through
         (x) gem "omniauth-rails_csrf_protection"
         (x) bundle
-    [] Variables from Google
+    [] Google Developers Console
+        (x) https://console.cloud.google.com/apis/dashboard?pli=1&project=hybrid-text-282213&folder=&organizationId=
+        (x) Create New Project - In the navbar you'll see a drop down of your project. There's an option to create a new project
+        (x) Credentials
+            (x) Configure Consent Screen
+                (x) External
+                (x) Create
+                (x) Application Name
+                (x) Add test user 
+                (x) Dashboard
+        () Create credentials 
+            () Create OAuth Client ID
+            () Application name
+            () Authorize redirect URLs: http://localhost:3000/auth/google_oauth2/callback
+         
     [] Create .env file 
         () touch .env - in the root
         () Add .env to .gitignore 
-    [] Google Developers Console
-        () https://console.cloud.google.com/apis/dashboard?pli=1&project=hybrid-text-282213&folder=&organizationId=
-        () Create New Project - In the navbar you'll see a drop down of your project. There's an option to create a new project
-        () Credentials
-            () Create Credentials (top of page)
-            () OAuth Client ID
+    
 
      
     
