@@ -1,16 +1,16 @@
 <div>
-    <div>
+    <div class="
+    sm:m-auto 
+    sm:mt-8 
+    mx-3 
+    my-3 
+    max-w-lg  
+    bg-gray-100 
+    border 
+    border-gray-300 
+    p-7">
     <%= form_for(:user) do |f| %>
-        <div class="
-            sm:m-auto 
-            sm:mt-8 
-            mx-3 
-            my-3 
-            max-w-lg  
-            bg-gray-100 
-            border 
-            border-gray-300 
-            p-7">
+        <div class="">
             <div>
            
                 <h1 class="text-xl font-semibold  mb-5">Login</h1>
@@ -51,46 +51,33 @@
                                                 px-5 
                                                 py-2 
                                                 h-12
+                                                mb-1
                                                 rounded-md 
                                                 cursor-pointer 
                                                 focus:outline-none 
                                                 bg-yellow-400' %>
                 </div>
             </div>
-            <!-- Facebook Google login-->
-            <div class="flex items-center mt-4 justify-center">
+            <div class="flex items-center mt-1 justify-center">
                 <span class="text-gray-400">OR</span>
             </div>
-            <div class="max-w-lg 
-                        flex 
-                        flex-col 
-                        justify-center 
-                        mt-3">
-                <button class="uppercase r
-                                h-12 
-                                text-white 
-                                w-full 
-                                rounded 
-                                bg-blue-800 
-                                hover:bg-blue-900
-                                focus:outline-none 
-                                transition-all"><i class="fab fa-github mr-2"></i>Github</button> 
-                <button class="uppercase 
-                                h-12 
-                                mt-3 
-                                text-white 
-                                w-full 
-                                rounded 
-                                bg-red-700 
-                                hover:bg-red-900
-                                focus:outline-none 
-                                transition-all"><i class="fab fa-google mr-2"></i>Google</button>
-            </div>
-        <!-- End Facebook-->
         </div>
-
     <% end %>
-
-  
+        <div class="max-w-lg 
+                flex 
+                flex-col 
+                justify-center 
+                mt-3">
+            <%= button_to("Google", '/auth/google_oauth2', {class: "uppercase 
+                                                    h-12  
+                                                    text-white 
+                                                    w-full 
+                                                    rounded 
+                                                    cursor-pointer
+                                                    bg-red-700 
+                                                    hover:bg-red-900
+                                                    focus:outline-none 
+                                                    transition-all"}) %>
+        </div> 
     </div>
 </div>

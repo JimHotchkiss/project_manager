@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
+  # OAurth
+  get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
+
   resources :developers
   resources :technologies
   resources :projects

@@ -364,9 +364,20 @@ Resource (recent video) https://www.youtube.com/watch?v=9pD0uXLI5uE
             end
              * Note - you can add multiple providers, like Github and Facebook
         () Routes - we need a route for the returning request
+            () get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
+                - Sending it to a different action other than 'create' eliminates the need for further logic in the sessions#create action.
+            () Define ominauth action in sessions controller
+            () Create outgoing route (this can go in the Google button) 
+                () button_to makes a POST request instead of GET request
+            () Throw in a binding in the omniauth action in sessions
+            () One you're in the bind
+                () request.env['omniauth.auth']
+                    - You can put this into a private method, to save you writing
+# Note - If it throws a JWT error, put ,:skip_jwt => true, at the end of the providers line in the middleware, omniauth.rb
+# Note - If you have uniqueness issues with omniauth, drop db and recreate
 
-    
 
+# Note - <i class="fab fa-google mr-2"></i>
      
     
 
