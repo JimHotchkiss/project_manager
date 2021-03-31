@@ -4,12 +4,8 @@ class SessionsController < ApplicationController
     end 
 
     def omniauth 
-     user = Developer.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |u|
-      u.username = auth['info']['name']
-      u.email = auth['info']['email']
-      # We can assign the user a password, if they are going through oauth
-      u.password = SecureRandom.hex(16)
-     end 
+     user = Developer.create_with_omniauth(auth)
+   
      if user.valid?
       login(user)
       redirect_to projects_path
