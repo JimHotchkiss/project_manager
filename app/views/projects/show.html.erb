@@ -12,19 +12,18 @@
                                         transition-all">
         <div class="flex flex-row">
             <h1 class="p-4 font-semibold">Project Title: <span class="font-light"><%= @project.title%></span></h1>
-            <div id="button"class="text-yellow-500
-                                    mt-4
-                                    ml-48
-                                    sm:ml-auto
-                                    sm:mr-12
-                                    transition-all
-                                    duration-1000 
-                                    ease-in-out
-                                    hover:text-yellow-700 
-                                    cursor-pointer "><i id="icon" class="fas fa-chevron-up"></i></div>
+            <div class="flex flex-row m-auto">
+                <div id="button"class="text-yellow-500
+                                        mt-4
+                                        hover:text-yellow-700 
+                                        cursor-pointer "><p class="pb-4  text-yellow-500 hover:text-yellow-700 transition-all" ><%= link_to "Add Task", new_project_task_path(@project.id) %></p>
+                </div>
+                <div class="mt-4 ml-12">
+                    <p class="text-yellow-500 hover:text-yellow-700 transition-all" ><%= link_to "Edit", edit_project_path %></p>
+                </div>          
+            </div>
         </div>
         <p class="p-4 font-semibold">Project Manager: <span class="font-light"><%= link_to "#{Developer.find(@project.developer_id).username}", developer_projects_path(@project.developer_id) %></li></span></p>
-
         <p class="p-4 font-semibold">Project Description: <span class="font-light"><%= @project.description%></span></p>
         <p class="p-4 font-semibold">Number of Developers: <span class="font-light"><%= @project.number_of_developers%></span></p>
         <div class="ml-4 mb-6 max-w-md">
@@ -40,9 +39,7 @@
             <% end %>
         </div>
         <div class="flex flex-row justify-around">
-        <p class="pb-4  text-yellow-500 hover:text-yellow-700 transition-all" ><%= link_to "edit", edit_project_path %></p>
-        <p class="pb-4  text-yellow-500 hover:text-yellow-700 transition-all" ><%= link_to "delete", project_path, method: :delete %></p>
+            <p class="pb-4  text-yellow-500 hover:text-yellow-700 transition-all" ><%= link_to "Delete", project_path, method: :delete %></p>
         </div>
-        
     </div>
 </div>

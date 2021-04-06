@@ -378,7 +378,16 @@ Resource (recent video) https://www.youtube.com/watch?v=9pD0uXLI5uE
 
 
 # Note - <i class="fab fa-google mr-2"></i>
-     
+
+# 4/5/2022
+    [X] Task - database
+        (x) project_id - belongs_to projects
+    [] Create task for Project
+        () Nested routes
+        () Render Tasks associated with project
+
+    [] Resources on show page, create anchor tag
+        
     
 
 
