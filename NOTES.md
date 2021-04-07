@@ -382,10 +382,15 @@ Resource (recent video) https://www.youtube.com/watch?v=9pD0uXLI5uE
 # 4/5/2022
     [X] Task - database
         (x) project_id - belongs_to projects
-    [] Create task for Project
-        () Nested routes
-        () Render Tasks associated with project
-
+    [X] Create task for Project
+        (x) Nested routes
+        (x) Render Task form
+            (x) Add Task title
+        (x) Render Tasks associated with project
+    [X] Add conditional to allow access to add task, edit or delete if the user created the project.
+    [] Create 'complete' button for Task 
+        () Properly update Task to reflect completed
+    [] Perhaps, make both edit and delete buttons and put them at the bottom columns
     [] Resources on show page, create anchor tag
         
     

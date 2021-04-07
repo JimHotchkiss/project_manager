@@ -70,13 +70,12 @@
             ml-3">
             <ul class="flex flex-col font-light">
             <% if logged_in? %>
-            <li class="mx-3 hover:text-yellow-400 transition-all text-black cursor-pointer"><%= link_to "Logout", logout_path %></li>
-            <li class="mx-3 hover:text-yellow-400 transition-all text-black cursor-pointer"><%= link_to "Open Projects", projects_path %></li>
+                <li class="mx-3 hover:text-yellow-400 transition-all text-black cursor-pointer"><%= link_to "Logout", logout_path %></li>
+                <li class="mx-3 hover:text-yellow-400 transition-all text-black cursor-pointer"><%= link_to "Open Projects", projects_path %></li>
                 <li class="mx-3 hover:text-yellow-400 transition-all text-black cursor-pointer"><%= link_to "Create Project", new_project_path %></li>
             <% else %>
-            <li class="mx-3 hover:text-yellow-400 transition-all text-black cursor-pointer"><%= link_to "Login", login_path %></li>
-            <li class="mx-3 hover:text-yellow-400 transition-all text-black cursor-pointer"><%= link_to "Register", new_developer_path %></li>
-
+                <li class="mx-3 hover:text-yellow-400 transition-all text-black cursor-pointer"><%= link_to "Login", login_path %></li>
+                <li class="mx-3 hover:text-yellow-400 transition-all text-black cursor-pointer"><%= link_to "Register", new_developer_path %></li>
             <% end %>
         
             </ul>

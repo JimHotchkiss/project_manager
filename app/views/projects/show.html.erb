@@ -10,17 +10,24 @@
                                         border 
                                         border-gray-300 
                                         transition-all">
-        <div class="flex flex-row">
+        <div class="flex 
+                    sm:flex-row
+                    flex-col">
             <h1 class="p-4 font-semibold">Project Title: <span class="font-light"><%= @project.title%></span></h1>
-            <div class="flex flex-row m-auto">
+            <div class="flex 
+                        flex-row 
+                        sm:m-auto
+                        ml-4">
                 <div id="button"class="text-yellow-500
                                         mt-4
                                         hover:text-yellow-700 
-                                        cursor-pointer "><p class="pb-4  text-yellow-500 hover:text-yellow-700 transition-all" ><%= link_to "Add Task", new_project_task_path(@project.id) %></p>
+                                        cursor-pointer "><p class="sm:pb-4  text-yellow-500 hover:text-yellow-700 transition-all" ><%= link_to "Add Task", new_project_task_path(@project.id) %></p>
                 </div>
-                <div class="mt-4 ml-12">
-                    <p class="text-yellow-500 hover:text-yellow-700 transition-all" ><%= link_to "Edit", edit_project_path %></p>
-                </div>          
+                <% if current_user.id  == @project.developer_id %>
+                    <div class="mt-4 ml-12">
+                        <p class="text-yellow-500 hover:text-yellow-700 transition-all" ><%= link_to "Edit", edit_project_path %></p>
+                    </div>  
+                <% end %>   
             </div>
         </div>
         <p class="p-4 font-semibold">Project Manager: <span class="font-light"><%= link_to "#{Developer.find(@project.developer_id).username}", developer_projects_path(@project.developer_id) %></li></span></p>
@@ -38,8 +45,30 @@
                 <p class="pt-1 font-light"><%= resource.url%></p>
             <% end %>
         </div>
-        <div class="flex flex-row justify-around">
-            <p class="pb-4  text-yellow-500 hover:text-yellow-700 transition-all" ><%= link_to "Delete", project_path, method: :delete %></p>
-        </div>
+
+        <!--Tasks -->
+        <% if @project.tasks.length != 0 %>
+            <div class="text-center">
+                <h1 class="text-xl font-semibold">Tasks to do </h1>
+            </div>
+                <% @project.tasks.each do |task| %>
+                    <% if task.completed %>
+                        <div class="max-w-md">
+                            <p class="text-gray-400 p-4 font-semibold">Task: <span class="font-light"><%= task.title%></span></p>
+                            <p class="text-gray-400 p-4 font-semibold">Description: <span class="font-light"><%= task.description%></span></p>
+                        </div>
+                    <% else %>
+                        <div class="max-w-md">
+                            <p class="p-4 font-semibold">Task: <span class="font-light"><%= task.title%></span></p>
+                            <p class="p-4 font-semibold">Description: <span class="font-light"><%= task.description%></span></p>
+                        </div>
+                    <% end %>
+                <% end %>
+        <% end %> 
+        <% if current_user.id  == @project.developer_id %>
+            <div class="flex flex-row justify-around">
+                <p class="pb-4  text-yellow-500 hover:text-yellow-700 transition-all" ><%= link_to "Delete", project_path, method: :delete %></p>
+            </div>
+        <% end %>
     </div>
 </div>

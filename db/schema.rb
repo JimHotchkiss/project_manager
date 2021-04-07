@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2021_04_06_001719) do
   end
 
   create_table "tasks", force: :cascade do |t|
+    t.string "title"
     t.string "description"
     t.boolean "completed", default: false, null: false
     t.bigint "project_id"
