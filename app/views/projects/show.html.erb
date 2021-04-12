@@ -54,12 +54,17 @@
                 <% @project.tasks.each do |task| %>
                     <% if task.completed %>
                         <div class="max-w-md">
-                            <p class="text-gray-400 p-4 font-semibold">Task: <span class="font-light"><%= task.title%></span></p>
+                            <div class="flex flex-row">
+                                <p class="text-gray-400 p-4 font-semibold">Task: <span class="font-light"><%= task.title%></span></p>
+                            </div>
                             <p class="text-gray-400 p-4 font-semibold">Description: <span class="font-light"><%= task.description%></span></p>
                         </div>
                     <% else %>
                         <div class="max-w-md">
-                            <p class="p-4 font-semibold">Task: <span class="font-light"><%= task.title%></span></p>
+                            <div class="flex flex-row">
+                                <p class="text-gray-700 p-4 font-semibold">Task: <span class="font-light"><%= task.title%></span></p>
+                                <p class="mt-4 ml-20 pb-4  text-yellow-500 hover:text-yellow-700 transition-all" ><%= link_to "Complete | Edit", project_path, method: :delete %></p>
+                            </div>
                             <p class="p-4 font-semibold">Description: <span class="font-light"><%= task.description%></span></p>
                         </div>
                     <% end %>
@@ -67,7 +72,7 @@
         <% end %> 
         <% if current_user.id  == @project.developer_id %>
             <div class="flex flex-row justify-around">
-                <p class="pb-4  text-yellow-500 hover:text-yellow-700 transition-all" ><%= link_to "Delete", project_path, method: :delete %></p>
+                <p class="pb-4  text-yellow-500 hover:text-yellow-700 transition-all" ><%= link_to "Delete Project", project_path, method: :delete %></p>
             </div>
         <% end %>
     </div>
