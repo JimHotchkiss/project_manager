@@ -5,11 +5,17 @@
                                         mt-8 
                                         mx-3 
                                         my-3 
+                                        pb-8
                                         bg-gray-100 
                                         rounded-lg 
                                         border 
                                         border-gray-300 
                                         transition-all">
+         <div class="text-center 
+                    bg-yellow-400
+                    py-2">
+            <h1 class="text-xl font-semibold">Project Details </h1>
+        </div>
         <div class="flex 
                     sm:flex-row
                     flex-col">
@@ -21,13 +27,8 @@
                 <div id="button"class="text-yellow-500
                                         mt-4
                                         hover:text-yellow-700 
-                                        cursor-pointer "><p class="sm:pb-4  text-yellow-500 hover:text-yellow-700 transition-all" ><%= link_to "Add Task", new_project_task_path(@project.id) %></p>
-                </div>
-                <% if current_user.id  == @project.developer_id %>
-                    <div class="mt-4 ml-12">
-                        <p class="text-yellow-500 hover:text-yellow-700 transition-all" ><%= link_to "Edit", edit_project_path %></p>
-                    </div>  
-                <% end %>   
+                                        cursor-pointer "><p class="sm:pb-4  text-yellow-500 hover:text-black transition-all" ><%= link_to "Add Task", new_project_task_path(@project.id) %></p>
+                </div>   
             </div>
         </div>
         <p class="p-4 font-semibold">Project Manager: <span class="font-light"><%= link_to "#{Developer.find(@project.developer_id).username}", developer_projects_path(@project.developer_id) %></li></span></p>
@@ -46,9 +47,45 @@
             <% end %>
         </div>
 
+        <!-- Delete Project | Edit Project-->
+        <% if current_user.id  == @project.developer_id %>
+        <div class="flex flex-row justify-around mb-8">
+            <div class="flex flex-row 
+                        items-center
+                        m-auto
+                        bg-yellow-400
+                        rounded
+                        h-12
+                        w-44
+                        focus:outline-none 
+                        cursor-pointer
+                        border
+                        hover:border-black
+                        transition-all">
+                <p class="text-black-500 m-auto" ><%= link_to "Delete Project", project_path, method: :delete %></p>
+            </div>
+            <div class="flex flex-row 
+                        items-center
+                        m-auto
+                        bg-yellow-400
+                        rounded
+                        h-12
+                        w-44
+                        focus:outline-none 
+                        cursor-pointer
+                        border
+                        hover:border-black
+                        transition-all">
+                <p class="text-black-500 m-auto" ><%= link_to "Edit", edit_project_path %></p>
+            </div> 
+        </div>
+        <% end %>
+
         <!--Tasks -->
         <% if @project.tasks.length != 0 %>
-            <div class="text-center">
+            <div class="text-center 
+                        bg-yellow-400
+                        py-2">
                 <h1 class="text-xl font-semibold">Tasks to do </h1>
             </div>
                 <% @project.tasks.each do |task| %>
@@ -60,20 +97,15 @@
                             <p class="text-gray-400 p-4 font-semibold">Description: <span class="font-light"><%= task.description%></span></p>
                         </div>
                     <% else %>
-                        <div class="max-w-md">
+                        <div class="">
                             <div class="flex flex-row">
                                 <p class="text-gray-700 p-4 font-semibold">Task: <span class="font-light"><%= task.title%></span></p>
-                                <p class="mt-4 ml-20 pb-4  text-yellow-500 hover:text-yellow-700 transition-all" ><%= link_to "Complete | Edit", project_path, method: :delete %></p>
+                                <p class="mt-4 ml-20 pb-4  text-yellow-500 hover:text-black transition-all" ><%= link_to "Complete | Edit", edit_task_path %></p>
                             </div>
                             <p class="p-4 font-semibold">Description: <span class="font-light"><%= task.description%></span></p>
                         </div>
                     <% end %>
                 <% end %>
         <% end %> 
-        <% if current_user.id  == @project.developer_id %>
-            <div class="flex flex-row justify-around">
-                <p class="pb-4  text-yellow-500 hover:text-yellow-700 transition-all" ><%= link_to "Delete Project", project_path, method: :delete %></p>
-            </div>
-        <% end %>
     </div>
 </div>

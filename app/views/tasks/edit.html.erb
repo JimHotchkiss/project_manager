@@ -1,0 +1,61 @@
+<div>
+    <%= form_for(@task) do |f| %>
+        <div class="
+            sm:m-auto 
+            sm:mt-8 
+            mx-3 
+            my-3 
+            max-w-lg  
+            bg-gray-100 
+            border 
+            border-gray-300 
+            p-7">
+        <div>
+            <h1 class="text-xl font-semibold  mb-5">Edit Task</h1>
+        </div>
+        <!-- Errors -->
+        <% if @task.errors.any?%>
+            <% @project.errors.full_messages.each do |message| %>
+                <li class="text-red-500 list-none"><%= message %></li>
+            <% end %>
+        <% end %>
+        <div class=" flex flex-col mb-3">
+            <%= f.label :title,  :class => "mb-1" %>
+            <%= f.text_field :title, :class => "mb-3 h-9 focus:outline-none" %>
+        </div>
+        <div class=" flex flex-col mb-3">
+            <%= f.label :description, :class => "mb-1" %>
+            <%= f.text_area :description, :class => "mb-3 focus:outline-none" %>
+        </div>
+
+        <!-- Completed Checkmarks-->
+        
+        <div class="flex flex-row">
+            <div class="">
+                <%= f.label :completed, "Mark task completed"%>
+            </div>
+            <div class="mt-0.5 ml-4">
+                <%= f.check_box :completed, class: "form-checkbox h-5 w-5 text-gray-600 checked" %>
+            </div>
+           
+        </div>
+       
+
+        <div>
+            <%= f.submit 'Edit', :class => 'w-full 
+                                                        border 
+                                                        hover:border-black 
+                                                        transition-all 
+                                                        hover:bg-yellow-500 
+                                                        mt-5 
+                                                        px-5 
+                                                        py-2 
+                                                        h-12
+                                                        rounded-md 
+                                                        cursor-pointer 
+                                                        focus:outline-none 
+                                                        bg-yellow-400' %>
+        </div>
+    </div>
+    <% end %>
+</div>
