@@ -509,6 +509,11 @@ Note - For styling, consider using Tailwinds. Video on Youtube for installing -h
 Note - Got an error: zsh: no matches found (the head symbol ^ caused the problem). Putting in the back-ticks before the head symbol fixed it.
     - npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@\^7 autoprefixer@\^9
 
+# Deployment 
+    () Create Welcome Controller
+        (x) rails generate controller welcome
+        (x) Welcome/views/index.html.erb
+
 
 
    
