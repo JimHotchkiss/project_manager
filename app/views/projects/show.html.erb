@@ -22,8 +22,8 @@
             <h1 class="p-4 font-semibold">Project Title: <span class="font-light"><%= @project.title%></span></h1>
             <div class="flex 
                         flex-row 
-                        sm:m-auto
-                        ml-4">
+                        ml-auto
+                        mr-8">
                 <div id="button"class="text-yellow-500
                                         mt-4
                                         hover:text-yellow-700 
@@ -55,7 +55,7 @@
                         m-auto
                         bg-yellow-400
                         rounded
-                        h-12
+                        h-8
                         w-44
                         focus:outline-none 
                         cursor-pointer
@@ -69,7 +69,7 @@
                         m-auto
                         bg-yellow-400
                         rounded
-                        h-12
+                        h-8
                         w-44
                         focus:outline-none 
                         cursor-pointer
@@ -90,9 +90,10 @@
             </div>
                 <% @project.tasks.each do |task| %>
                     <% if task.completed %>
-                        <div class="max-w-md">
+                        <div class="">
                             <div class="flex flex-row">
                                 <p class="text-gray-400 p-4 font-semibold">Task: <span class="font-light"><%= task.title%></span></p>
+                                <p class="mt-4 ml-auto mr-8 pb-4  text-green-500 " >Task Completed</p>
                             </div>
                             <p class="text-gray-400 p-4 font-semibold">Description: <span class="font-light"><%= task.description%></span></p>
                         </div>
@@ -100,7 +101,7 @@
                         <div class="">
                             <div class="flex flex-row">
                                 <p class="text-gray-700 p-4 font-semibold">Task: <span class="font-light"><%= task.title%></span></p>
-                                <p class="mt-4 ml-20 pb-4  text-yellow-500 hover:text-black transition-all" ><%= link_to "Complete | Edit", edit_task_path %></p>
+                                <p class="mt-4 ml-auto mr-8 pb-4  text-yellow-500 hover:text-black transition-all" ><%= link_to "Complete | Edit", edit_task_path(id: task.id) %></p>
                             </div>
                             <p class="p-4 font-semibold">Description: <span class="font-light"><%= task.description%></span></p>
                         </div>
