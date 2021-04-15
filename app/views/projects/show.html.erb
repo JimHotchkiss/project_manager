@@ -46,8 +46,9 @@
         <div class="ml-4 mb-6 max-w-md">
             <p class="font-semibold">Resources:</p>
             <% @project.resources.each do |resource|  %>
-                
-                <p class="pt-1 font-light"><%=link_to(resource.url, resource.url, target: "_blank")%></p>
+                <% if resource.url != nil%>
+                    <p class="pt-1 font-light"><%=link_to(resource.url, resource.url, target: "_blank")%></p>
+                <% end %>
             <% end %>
         </div>
 
