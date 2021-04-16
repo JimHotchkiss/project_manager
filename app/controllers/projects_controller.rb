@@ -1,6 +1,4 @@
 class ProjectsController < ApplicationController
-    require 'pry'
-
     def index 
         if params[:developer_id]
             @projects = Developer.find(params[:developer_id]).projects
